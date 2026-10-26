@@ -7,13 +7,17 @@
   <link rel="icon" href="imagens-atualizadas/perfil-noshi.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&display=swap" />
+  <script>try{document.documentElement.dataset.theme=localStorage.getItem("noshi-theme")||(matchMedia("(prefers-color-scheme:dark)").matches?"dark":"light")}catch(e){}</script>
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
   <header class="header">
     <div class="wrap bar">
       <a class="logo" href="index.html">The Clothing Noshi</a>
-      <a class="cart-open" href="index.html">Continuar comprando</a>
+      <div class="actions">
+        <button class="theme-toggle" type="button" role="switch" aria-checked="false" aria-label="Tema escuro"><span class="stars"></span><span class="knob"></span></button>
+        <a class="cart-open" href="index.html">Continuar comprando</a>
+      </div>
     </div>
   </header>
 

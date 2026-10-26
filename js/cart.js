@@ -211,4 +211,13 @@ if (form) {
   };
 }
 
+/* ---------- tema escuro ---------- */
+function setTheme(t, persist) {
+  document.documentElement.dataset.theme = t;
+  $$(".theme-toggle").forEach(b => b.setAttribute("aria-checked", t === "dark"));
+  if (persist) try { localStorage.setItem("noshi-theme", t); } catch {}
+}
+setTheme(document.documentElement.dataset.theme || "light");
+$$(".theme-toggle").forEach(b => (b.onclick = () => setTheme(document.documentElement.dataset.theme === "dark" ? "light" : "dark", true)));
+
 render();
