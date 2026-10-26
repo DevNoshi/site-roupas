@@ -1,93 +1,60 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Checkout - The Clothing Noshi</title>
+  <link rel="icon" href="imagens-atualizadas/perfil-noshi.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&display=swap" />
   <link rel="stylesheet" href="css/style.css" />
-  <link rel="icon" href="imagens-atualizadas/perfil-noshi.png" type="image/x-icon">
-
 </head>
-
 <body>
   <header class="header">
-    <div class="header-container">
-      <div class="logo">The Clothing Noshi</div>
-      <nav>
-        <a href="index.html">Produtos</a>
-        <a href="checkout.html">Carrinho</a>
-      </nav>
+    <div class="wrap bar">
+      <a class="logo" href="index.html">The Clothing Noshi</a>
+      <a class="cart-open" href="index.html">Continuar comprando</a>
     </div>
   </header>
 
-  <main class="cart-main">
-    <h2>Seu Carrinho</h2>
+  <main class="wrap checkout">
+    <section>
+      <h1>Seu carrinho</h1>
+      <div class="cart-list"></div>
+      <p class="sum"><span>Total</span><strong class="cart-total" id="total-price">R$ 0,00</strong></p>
+    </section>
 
-    <section class="cart-items"></section>
-
-    <div class="cart-total-container">
-      Total: <span id="total-price">R$ 0,00</span>
-    </div>
-
-    <!-- Formulário de dados do cliente -->
-    <form id="checkout-form" class="checkout-form">
-      <h3>Dados do Cliente</h3>
-
-      <label for="name">Nome completo:</label>
-      <input type="text" id="name" name="name" required />
-
-      <label for="email">E-mail:</label>
-      <input type="email" id="email" name="email" required />
-
-      <label for="phone">Telefone:</label>
-      <input type="tel" id="phone" name="phone" required />
-
-      <label for="address">Endereço:</label>
-      <textarea id="address" name="address" rows="3" required></textarea>
-    </form>
-
-    <button id="checkout-btn" disabled>Finalizar Compra</button>
-    <button type="button" id="whatsapp-btn" disabled>Enviar pedido pelo WhatsApp</button>
+    <section>
+      <h2>Seus dados</h2>
+      <form id="checkout-form" class="form" novalidate>
+        <label>Nome completo<input id="name" name="name" autocomplete="name" required /></label>
+        <label>E-mail<input id="email" name="email" type="email" autocomplete="email" required /></label>
+        <label>Telefone<input id="phone" name="phone" type="tel" inputmode="numeric" placeholder="(11) 99999-9999" autocomplete="tel" required /></label>
+        <label>CEP<input id="cep" name="cep" inputmode="numeric" placeholder="00000-000" autocomplete="postal-code" required /></label>
+        <label>Endereço<textarea id="address" name="address" rows="3" placeholder="Rua, número, complemento, bairro, cidade" required></textarea></label>
+        <p class="hint" id="cep-hint"></p>
+        <button type="submit" class="btn" id="checkout-btn" disabled>Finalizar compra</button>
+        <button type="button" class="btn ghost" id="whatsapp-btn" disabled>Enviar pedido pelo WhatsApp</button>
+      </form>
+      <div class="done" id="done" hidden>
+        <h2>Pedido recebido</h2>
+        <p>Obrigado! Vamos entrar em contato para confirmar pagamento e entrega.</p>
+        <a class="btn" href="index.html">Voltar à loja</a>
+      </div>
+    </section>
   </main>
 
   <footer class="footer">
-    <div class="footer-container">
-      <section class="footer-section">
+    <div class="wrap foot">
+      <div>
         <h3>Contato</h3>
-        <p>Email: contato@theclothingnoshi.com</p>
-        <p>Telefone: +55 11 91234-5678</p>
-      </section>
-      <section class="footer-section">
-        <h3>Siga-nos</h3>
-        <div class="social-icons">
-          <a href="#" aria-label="Instagram" title="Instagram" target="_blank" rel="noopener">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-              <path
-                d="M7 2C4.243 2 2 4.243 2 7v10c0 2.757 2.243 5 5 5h10c2.757 0 5-2.243 5-5V7c0-2.757-2.243-5-5-5H7zM7 4h10c1.657 0 3 1.343 3 3v10c0 1.657-1.343 3-3 3H7c-1.657 0-3-1.343-3-3V7c0-1.657 1.343-3 3-3zm8.5 4a1.5 1.5 0 110 3 1.5 1.5 0 010-3zm-4.5 1c-2.209 0-4 1.791-4 4 0 2.208 1.791 4 4 4 2.208 0 4-1.792 4-4 0-2.209-1.792-4-4-4z" />
-            </svg>
-          </a>
-          <a href="#" aria-label="Facebook" title="Facebook" target="_blank" rel="noopener">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-              <path
-                d="M22 12c0-5.514-4.486-10-10-10S2 6.486 2 12c0 5.017 3.676 9.162 8.438 9.877v-6.987H7.898v-2.89h2.54v-2.206c0-2.507 1.492-3.89 3.778-3.89 1.094 0 2.238.196 2.238.196v2.465h-1.26c-1.243 0-1.63.772-1.63 1.562v1.873h2.773l-.443 2.89h-2.33v6.987C18.324 21.162 22 17.017 22 12z" />
-            </svg>
-          </a>
-          <a href="mailto:contato@theclothingnoshi.com" aria-label="Email" title="Email">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-              <path
-                d="M2 6v12c0 1.104.896 2 2 2h16c1.104 0 2-.896 2-2V6c0-1.104-.896-2-2-2H4c-1.104 0-2 .896-2 2zm18 0v.511l-8 5.333-8-5.333V6h16zm0 12H4v-9.489l8 5.333 8-5.333V18z" />
-            </svg>
-          </a>
-        </div>
-      </section>
+        <p><a href="mailto:contato@theclothingnoshi.com">contato@theclothingnoshi.com</a></p>
+      </div>
     </div>
+    <p class="copy">&copy; 2026 The Clothing Noshi. Todos os direitos reservados.</p>
   </footer>
-  <p class="text-copy">
-    &copy; 2025 The Clothing Noshi. Todos os direitos reservados.
-  </p>
 
+  <div id="toast" class="toast" role="status"></div>
   <script src="js/cart.js"></script>
 </body>
-
 </html>

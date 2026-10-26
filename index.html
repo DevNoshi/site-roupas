@@ -1,368 +1,75 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>The Clothing Noshi </title>
-    <link rel="stylesheet" href="css/style.css" />
-    <link rel="icon" href="imagens-atualizadas/perfil-noshi.png" type="image/x-icon">
-
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>The Clothing Noshi</title>
+  <meta name="description" content="Moda masculina com qualidade, estilo e conforto." />
+  <link rel="icon" href="imagens-atualizadas/perfil-noshi.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&display=swap" />
+  <link rel="stylesheet" href="css/style.css" />
 </head>
-
 <body>
-    <header class="header">
-        <div class="header-container">
-            <h1 class="logo">The Clothing Noshi</h1>
-            <nav>
-                <a href="checkout.html" aria-label="Ver carrinho">
-                    Carrinho (<span id="cart-count">0</span>)
-                </a>
-            </nav>
-        </div>
-        
-    </header>
-    <div class="banner">
-            <img src="imagens-atualizadas/perfil3.png" alt="Banner Principal" />
-        </div>
-    <main>
-        <div class="titulo-h1"></div>
-        <h1 class="titulo-principal">Produtos</h1>
-        <section class="product-list">
-            <!-- Produto 1 -->
-            <article class="cart-cream-box" data-id="001" data-title="Conjunto Adidas Masculino" data-price="100"
-                data-image="imagens-atualizadas/conjuntoaddidas1.png">
-                <div class="cart-imagens-produtos">
-                    <img src="imagens-atualizadas/moleton1-branco.png" alt="Moletom Branco Masculino" />
-                </div>
+  <header class="header">
+    <div class="wrap bar">
+      <a class="logo" href="index.html">The Clothing Noshi</a>
+      <button class="cart-open" id="cart-open" aria-label="Abrir carrinho">
+        Carrinho <span id="cart-count" class="count">0</span>
+      </button>
+    </div>
+  </header>
 
-                <h3 class="cart-title-item">Moletom Branco Masculino</h3>
-                <div class="price-text">R$199,90</div>
+  <section class="hero">
+    <img src="imagens-atualizadas/perfil3.png" alt="Coleção The Clothing Noshi" />
+  </section>
 
-                <div class="size-selector" role="radiogroup" aria-label="Selecione o tamanho">
-                    <input type="radio" id="size-m" name="size-produto-001" value="M" checked />
-                    <label for="size-m">M</label>
+  <main class="wrap">
+    <div class="tools">
+      <div class="chips" id="chips" role="group" aria-label="Categorias"></div>
+      <div class="filters">
+        <input type="search" id="search" placeholder="Buscar peça" aria-label="Buscar peça" />
+        <select id="sort" aria-label="Ordenar">
+          <option value="">Ordenar</option>
+          <option value="asc">Menor preço</option>
+          <option value="desc">Maior preço</option>
+          <option value="az">Nome A–Z</option>
+        </select>
+      </div>
+    </div>
+    <section class="grid" id="grid" aria-live="polite"></section>
+  </main>
 
-                    <input type="radio" id="size-g" name="size-produto-001" value="G" />
-                    <label for="size-g">G</label>
+  <footer class="footer">
+    <div class="wrap foot">
+      <div>
+        <h3>The Clothing Noshi</h3>
+        <p>Moda masculina com qualidade, estilo e conforto.</p>
+      </div>
+      <div>
+        <h3>Contato</h3>
+        <p><a href="mailto:contato@theclothingnoshi.com">contato@theclothingnoshi.com</a></p>
+        <p><a href="https://wa.me/5511999999999" target="_blank" rel="noopener">WhatsApp</a> ·
+           <a href="https://www.instagram.com/seuusuario" target="_blank" rel="noopener">Instagram</a></p>
+      </div>
+    </div>
+    <p class="copy">&copy; 2026 The Clothing Noshi. Todos os direitos reservados.</p>
+  </footer>
 
-                    <input type="radio" id="size-gg" name="size-produto-001" value="GG" />
-                    <label for="size-gg">GG</label>
-                </div>
+  <div class="overlay" id="overlay"></div>
+  <aside class="drawer" id="drawer" aria-label="Carrinho" aria-hidden="true">
+    <div class="drawer-head">
+      <h2>Seu carrinho</h2>
+      <button id="cart-close" aria-label="Fechar carrinho">✕</button>
+    </div>
+    <div class="cart-list"></div>
+    <div class="drawer-foot">
+      <p class="sum"><span>Subtotal</span><strong class="cart-total">R$ 0,00</strong></p>
+      <a class="btn" id="go-checkout" href="checkout.html">Ir para o checkout</a>
+    </div>
+  </aside>
+  <div id="toast" class="toast" role="status"></div>
 
-                <button class="cart-btn-add-cart" aria-label="Adicionar Moletom Supreme Branco ao carrinho">Adicionar
-                    ao carrinho</button>
-            </article>
-
-            <!-- Produto 2 -->
-            <article class="cart-cream-box" data-id="002" data-title="Moletom Cinza Masculino" data-price="100"
-                data-image="imagens-atualizadas/cortaventoquick1.png">
-                <div class="cart-imagens-produtos">
-                    <img src="imagens-atualizadas/moleton1-cinza.png" alt="Moletom Cinza Masculino" />
-                </div>
-                <h3 class="cart-title-item">Moletom Cinza Masculino</h3>
-                <div class="price-text">R$100,00</div>
-
-                <div class="size-selector" role="radiogroup" aria-label="Selecione o tamanho">
-                    <input type="radio" id="size-m" name="size-produto-001" value="M" checked />
-                    <label for="size-m">M</label>
-
-                    <input type="radio" id="size-g" name="size-produto-001" value="G" />
-                    <label for="size-g">G</label>
-
-                    <input type="radio" id="size-gg" name="size-produto-001" value="GG" />
-                    <label for="size-gg">GG</label>
-                </div>
-
-                <button class="cart-btn-add-cart" aria-label="Adicionar Moletom Cinza Masculino ao carrinho">Adicionar
-                    ao carrinho</button>
-            </article>
-
-            <!-- Produto 3 -->
-            <article class="cart-cream-box" data-id="003" data-title="Calça de Moletom Preta" data-price="100"
-                data-image="imagens-atualizadas/calcamoleton1-preta.png">
-                <div class="cart-imagens-produtos">
-                    <img src="imagens-atualizadas/calcamoleton1-preta.png" alt="Calça de Moletom Preta" />
-                </div>
-                <h3 class="cart-title-item">Calça de Moletom</h3>
-                <div class="price-text">R$100,00</div>
-
-                <div class="size-selector" role="radiogroup" aria-label="Selecione o tamanho">
-                    <label><input type="radio" name="size-produto-003" value="M" checked /> M</label>
-                    <label><input type="radio" name="size-produto-003" value="G" /> G</label>
-                    <label><input type="radio" name="size-produto-003" value="GG" /> GG</label>
-                </div>
-
-                <button class="cart-btn-add-cart" aria-label="Adicionar Calça de Moletom ao carrinho">Adicionar ao
-                    carrinho</button>
-            </article>
-            <!-- Produto 4 -->
-            <article class="cart-cream-box" data-id="004" data-title="Bermuda Oakley Masculina" data-price="99,90"
-                data-image="imagens-atualizadas/calcamoleton1-preta.png">
-                <div class="cart-imagens-produtos">
-                    <img src="imagens-atualizadas/bermuda1-oakley.png" alt="Bermuda Oakley Masculina" />
-                </div>
-                <h3 class="cart-title-item">Bermuda Oakley Masculina</h3>
-                <div class="price-text">R$99,90</div>
-
-                <div class="size-selector" role="radiogroup" aria-label="Selecione o tamanho">
-                    <label><input type="radio" name="size-produto-003" value="M" checked /> M</label>
-                    <label><input type="radio" name="size-produto-003" value="G" /> G</label>
-                    <label><input type="radio" name="size-produto-003" value="GG" /> GG</label>
-                </div>
-
-                <button class="cart-btn-add-cart" aria-label="Adicionar Bermuda Oakley ao carrinho">Adicionar ao
-                    carrinho</button>
-            </article>
-            <!-- Produto 5 -->
-            <article class="cart-cream-box" data-id="005" data-title="Bermuda Oakley Masculina" data-price="99,90"
-                data-image="imagens-atualizadas/calcamoleton1-preta.png">
-                <div class="cart-imagens-produtos">
-                    <img src="imagens-atualizadas/bermuda2-oakley.png" alt="Bermuda Oakley Masculina" />
-                </div>
-                <h3 class="cart-title-item">Bermuda Oakley Masculina</h3>
-                <div class="price-text">R$99,90</div>
-
-                <div class="size-selector" role="radiogroup" aria-label="Selecione o tamanho">
-                    <label><input type="radio" name="size-produto-003" value="M" checked /> M</label>
-                    <label><input type="radio" name="size-produto-003" value="G" /> G</label>
-                    <label><input type="radio" name="size-produto-003" value="GG" /> GG</label>
-                </div>
-
-                <button class="cart-btn-add-cart" aria-label="Adicionar Bermuda Oakley ao carrinho">Adicionar ao
-                    carrinho</button>
-            </article>
-            <!-- Produto 6 -->
-            <article class="cart-cream-box" data-id="006" data-title="Bermuda Oakley Masculina" data-price="99,90"
-                data-image="imagens-atualizadas/calcamoleton1-preta.png">
-                <div class="cart-imagens-produtos">
-                    <img src="imagens-atualizadas/bermuda3-oakley.png" alt="Bermuda Oakley Masculina" />
-                </div>
-                <h3 class="cart-title-item">Bermuda Oakley Masculina</h3>
-                <div class="price-text">R$99,90</div>
-
-                <div class="size-selector" role="radiogroup" aria-label="Selecione o tamanho">
-                    <label><input type="radio" name="size-produto-003" value="M" checked /> M</label>
-                    <label><input type="radio" name="size-produto-003" value="G" /> G</label>
-                    <label><input type="radio" name="size-produto-003" value="GG" /> GG</label>
-                </div>
-
-                <button class="cart-btn-add-cart" aria-label="Adicionar Bermuda Oakley ao carrinho">Adicionar ao
-                    carrinho</button>
-            </article>
-            <!-- Produto 7 -->
-            <article class="cart-cream-box" data-id="007" data-title="Bermuda Oakley Masculina" data-price="99,90"
-                data-image="imagens-atualizadas/calcamoleton1-preta.png">
-                <div class="cart-imagens-produtos">
-                    <img src="imagens-atualizadas/bermuda4-oakley.png" alt="Bermuda Oakley Masculina" />
-                </div>
-                <h3 class="cart-title-item">Bermuda Oakley Masculina</h3>
-                <div class="price-text">R$99,90</div>
-
-                <div class="size-selector" role="radiogroup" aria-label="Selecione o tamanho">
-                    <label><input type="radio" name="size-produto-003" value="M" checked /> M</label>
-                    <label><input type="radio" name="size-produto-003" value="G" /> G</label>
-                    <label><input type="radio" name="size-produto-003" value="GG" /> GG</label>
-                </div>
-
-                <button class="cart-btn-add-cart" aria-label="Adicionar Bermuda Oakley ao carrinho">Adicionar ao
-                    carrinho</button>
-            </article>
-            <!-- Produto 8 -->
-            <article class="cart-cream-box" data-id="008" data-title="Camiseta Branca Masculina" data-price="79,90"
-                data-image="imagens-atualizadas/calcamoleton1-preta.png">
-                <div class="cart-imagens-produtos">
-                    <img src="imagens-atualizadas/camiseta1-branca.png" alt="Camiseta Branca Masculina" />
-                </div>
-                <h3 class="cart-title-item">Camiseta Branca Masculina</h3>
-                <div class="price-text">R$79,90</div>
-
-                <div class="size-selector" role="radiogroup" aria-label="Selecione o tamanho">
-                    <label><input type="radio" name="size-produto-003" value="M" checked /> M</label>
-                    <label><input type="radio" name="size-produto-003" value="G" /> G</label>
-                    <label><input type="radio" name="size-produto-003" value="GG" /> GG</label>
-                </div>
-
-                <button class="cart-btn-add-cart" aria-label="Adicionar Camiseta Branca ao carrinho">Adicionar ao
-                    carrinho</button>
-            </article>
-            <!-- Produto 9 -->
-            <article class="cart-cream-box" data-id="009" data-title="Camiseta Marrom Masculina" data-price="69,90"
-                data-image="imagens-atualizadas/calcamoleton1-preta.png">
-                <div class="cart-imagens-produtos">
-                    <img src="imagens-atualizadas/camiseta2-marrom.png" alt="Camiseta Marrom Masculina" />
-                </div>
-                <h3 class="cart-title-item">Camiseta Marrom Masculina</h3>
-                <div class="price-text">R$69,90</div>
-
-                <div class="size-selector" role="radiogroup" aria-label="Selecione o tamanho">
-                    <label><input type="radio" name="size-produto-003" value="M" checked /> M</label>
-                    <label><input type="radio" name="size-produto-003" value="G" /> G</label>
-                    <label><input type="radio" name="size-produto-003" value="GG" /> GG</label>
-                </div>
-
-                <button class="cart-btn-add-cart" aria-label="Adicionar Camiseta Marrom ao carrinho">Adicionar ao
-                    carrinho</button>
-            </article>
-            <!-- Produto 10 -->
-            <article class="cart-cream-box" data-id="010" data-title="Camiseta QuickSilver Masculina" data-price="79,90"
-                data-image="imagens-atualizadas/calcamoleton1-preta.png">
-                <div class="cart-imagens-produtos">
-                    <img src="imagens-atualizadas/camiseta3-quick.png" alt="Camiseta QuickSilver Masculina" />
-                </div>
-                <h3 class="cart-title-item">Camiseta QuickSilver Masculina</h3>
-                <div class="price-text">R$79,90</div>
-
-                <div class="size-selector" role="radiogroup" aria-label="Selecione o tamanho">
-                    <label><input type="radio" name="size-produto-003" value="M" checked /> M</label>
-                    <label><input type="radio" name="size-produto-003" value="G" /> G</label>
-                    <label><input type="radio" name="size-produto-003" value="GG" /> GG</label>
-                </div>
-
-                <button class="cart-btn-add-cart" aria-label="Adicionar Camiseta QuickSilver ao carrinho">Adicionar ao
-                    carrinho</button>
-            </article>
-            <!-- Produto 11 -->
-            <article class="cart-cream-box" data-id="011" data-title="Camiseta QuickSilver Masculina" data-price="79,90"
-                data-image="imagens-atualizadas/calcamoleton1-preta.png">
-                <div class="cart-imagens-produtos">
-                    <img src="imagens-atualizadas/camiseta4-quick.png" alt="Camiseta QuickSilver Masculina" />
-                </div>
-                <h3 class="cart-title-item">Camiseta QuickSilver Masculina</h3>
-                <div class="price-text">R$79,90</div>
-
-                <div class="size-selector" role="radiogroup" aria-label="Selecione o tamanho">
-                    <label><input type="radio" name="size-produto-003" value="M" checked /> M</label>
-                    <label><input type="radio" name="size-produto-003" value="G" /> G</label>
-                    <label><input type="radio" name="size-produto-003" value="GG" /> GG</label>
-                </div>
-
-                <button class="cart-btn-add-cart" aria-label="Adicionar Camiseta QuickSilver ao carrinho">Adicionar ao
-                    carrinho</button>
-            </article>
-            <!-- Produto 12 -->
-            <article class="cart-cream-box" data-id="012" data-title="Bone Oakley" data-price="119,90"
-                data-image="imagens-atualizadas/calcamoleton1-preta.png">
-                <div class="cart-imagens-produtos">
-                    <img src="imagens-atualizadas/bone1-oakley.png" alt="Bone Oakley" />
-                </div>
-                <h3 class="cart-title-item">Bone Oakley</h3>
-                <div class="price-text">R$119,90</div>
-
-                <div class="size-selector" role="radiogroup" aria-label="Selecione o tamanho">
-                    <label><input type="radio" name="size-produto-003" value="M" checked /> M</label>
-                    <label><input type="radio" name="size-produto-003" value="G" /> G</label>
-                    <label><input type="radio" name="size-produto-003" value="GG" /> GG</label>
-                </div>
-
-                <button class="cart-btn-add-cart" aria-label="Adicionar Bone Oakley ao carrinho">Adicionar ao
-                    carrinho</button>
-            </article>
-            <!-- Produto 13 -->
-            <article class="cart-cream-box" data-id="013" data-title="Moletom Nike Masculino" data-price="139,90"
-                data-image="imagens-atualizadas/calcamoleton1-preta.png">
-                <div class="cart-imagens-produtos">
-                    <img src="imagens-atualizadas/moletonnike1.png" alt="Moletom Nike Masculino" />
-                </div>
-                <h3 class="cart-title-item">Moletom Nike Masculino</h3>
-                <div class="price-text">R$139,90</div>
-
-                <div class="size-selector" role="radiogroup" aria-label="Selecione o tamanho">
-                    <label><input type="radio" name="size-produto-003" value="M" checked /> M</label>
-                    <label><input type="radio" name="size-produto-003" value="G" /> G</label>
-                    <label><input type="radio" name="size-produto-003" value="GG" /> GG</label>
-                </div>
-
-                <button class="cart-btn-add-cart" aria-label="Adicionar Moletom Nike ao carrinho">Adicionar ao
-                    carrinho</button>
-            </article>
-            <!-- Produto 14 -->
-            <article class="cart-cream-box" data-id="014" data-title="Toca Supreme" data-price="69,90"
-                data-image="imagens-atualizadas/calcamoleton1-preta.png">
-                <div class="cart-imagens-produtos">
-                    <img src="imagens-atualizadas/toca1-azul.png" alt="Toca Supreme" />
-                </div>
-                <h3 class="cart-title-item">Toca Supreme</h3>
-                <div class="price-text">R$69,90</div>
-
-                <div class="size-selector" role="radiogroup" aria-label="Selecione o tamanho">
-                    <label><input type="radio" name="size-produto-003" value="M" checked /> M</label>
-                    <label><input type="radio" name="size-produto-003" value="G" /> G</label>
-                    <label><input type="radio" name="size-produto-003" value="GG" /> GG</label>
-                </div>
-
-                <button class="cart-btn-add-cart" aria-label="Adicionar Blusa Parka Supreme ao carrinho">Adicionar ao
-                    carrinho</button>
-            </article>
-            <!-- Produto 15 -->
-            <article class="cart-cream-box" data-id="015" data-title="Blusa Parka Supreme" data-price="12,999,90"
-                data-image="imagens-atualizadas/calcamoleton1-preta.png">
-                <div class="cart-imagens-produtos">
-                    <img src="imagens-atualizadas/blusa2-parka.png" alt="Blusa Parka Supreme" />
-                </div>
-                <h3 class="cart-title-item">Blusa Parka Supreme</h3>
-                <div class="price-text">R$12,999,00</div>
-
-                <div class="size-selector" role="radiogroup" aria-label="Selecione o tamanho">
-                    <label><input type="radio" name="size-produto-003" value="M" checked /> M</label>
-                    <label><input type="radio" name="size-produto-003" value="G" /> G</label>
-                    <label><input type="radio" name="size-produto-003" value="GG" /> GG</label>
-                </div>
-
-                <button class="cart-btn-add-cart" aria-label="Adicionar Blusa Parka Supreme ao carrinho">Adicionar ao
-                    carrinho</button>
-            </article>
-        </section>
-    </main>
-
-    <!-- Footer -->
-    <footer class="footer" role="contentinfo">
-        <div class="footer-container">
-            <section class="footer-section" aria-label="Sobre a loja">
-                <h3>Sobre The Clothing Noshi</h3>
-                <p>Somos uma loja especializada em moda masculina, oferecendo qualidade, estilo e conforto para você.
-                </p>
-            </section>
-
-            <section class="footer-section" aria-label="Contato">
-                <h3>Contato</h3>
-                <p>Email: <a href="mailto:contato@theclothingnoshi.com">contato@theclothingnoshi.com</a></p>
-                <p>Telefone: <a href="tel:+5511999999999">(11) 99999-9999</a></p>
-                <p>WhatsApp: <a href="https://wa.me/5511999999999" target="_blank" rel="noopener noreferrer">(11)
-                        99999-9999</a></p>
-            </section>
-
-            <section class="footer-section" aria-label="Redes sociais">
-                <h3>Siga-nos</h3>
-                <div class="social-icons">
-                    <a href="https://www.instagram.com/seuusuario" target="_blank" rel="noopener noreferrer"
-                        aria-label="Instagram">
-                        <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                            <path
-                                d="M7.75 2h8.5A5.75 5.75 0 0122 7.75v8.5A5.75 5.75 0 0116.25 22h-8.5A5.75 5.75 0 012 16.25v-8.5A5.75 5.75 0 017.75 2zm0 2A3.75 3.75 0 004 7.75v8.5A3.75 3.75 0 007.75 20h8.5a3.75 3.75 0 003.75-3.75v-8.5A3.75 3.75 0 0016.25 4h-8.5zm8.98 1.53a1.1 1.1 0 110 2.2 1.1 1.1 0 010-2.2zM12 7a5 5 0 110 10 5 5 0 010-10zm0 2a3 3 0 100 6 3 3 0 000-6z" />
-                        </svg>
-                    </a>                    
-                    <a href="mailto:contato@theclothingnoshi.com" aria-label="Email">
-                        <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                            <path d="M2 6v12h20V6H2zm18 2l-8 5-8-5V8l8 5 8-5v.5z" />
-                            
-                        </svg>
-                    </a>
-                    <a href="tel:+5511999999999" aria-label="Telefone">
-                        <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                            <path
-                                d="M6.62 10.79a15.53 15.53 0 006.59 6.59l2.2-2.21a1 1 0 011.11-.21 11.26 11.26 0 003.54.57 1 1 0 011 1v3.54a1 1 0 01-1 1A17.94 17.94 0 013 6a1 1 0 011-1h3.54a1 1 0 011 1 11.26 11.26 0 00.57 3.54 1 1 0 01-.21 1.11z" />
-                        </svg>
-                    </a>
-                </div>
-            </section>
-        </div>
-        <p class="text-copy">
-            &copy; 2025 The Clothing Noshi. Todos os direitos reservados.
-        </p>
-    </footer>
-
-    <script src="js/cart.js"></script>
+  <script src="js/cart.js"></script>
 </body>
-
 </html>
